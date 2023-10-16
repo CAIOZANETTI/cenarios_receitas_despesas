@@ -2,7 +2,7 @@ import streamlit as st
 
 st.write('teste')
 
-cols =st.columns([1,1])
+cols =st.columns([1,1,1])
 fluxos = ['aleatorio','parcela fixa','financiamento price','recorrente']
 cols[0].radio('tipo fluxo',fluxos,key='curva')
 
