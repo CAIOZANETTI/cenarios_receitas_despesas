@@ -7,8 +7,12 @@ fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
 cols[0].radio('tipo fluxo',fluxos,key='curva')
 
 if st.session_state['curva'] =='aleatorio':
-	cols[1].slider('min_maxte',0,100,(5,10),key='min_max')
-	cols[2].write(st.session_state['min_max'])
+
+	cols[1].number_input('min',key='min')
+	cols[1].number_input('max',key='max')
+	cols[2].write(st.session_state['min'])
+	cols[2].write(st.session_state['max'])
+
 
 if st.session_state['curva'] =='parcela-fixa':
 	st.write('parcela-fixa')
