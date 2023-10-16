@@ -2,8 +2,8 @@ import streamlit as st
 
 st.write('teste')
 cols =st.columns([1,1,1])
-cols[0].number_input('prazo')
-cols[1].number_input('loops',value=100)
+cols[0].slider('periodo',12,60,value=12)
+cols[1].slider('loops',10,100,value=50)
 cols[2].slider('quartil',5,100,value=50)
 
 cols =st.columns([1,1,1])
