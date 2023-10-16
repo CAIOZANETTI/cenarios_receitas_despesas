@@ -10,7 +10,7 @@ st.write(st.session_state['curva'])
 
 if st.session_state['curva'] =='aleatorio':
 
-	cols[1].number_input('min',key='min')
+	cols[1].number_input('min')#,key='min')
 	cols[1].number_input('max',key='max')
 	#cols[2].write(st.session_state['min'])
 	#cols[2].write(st.session_state['max'])
