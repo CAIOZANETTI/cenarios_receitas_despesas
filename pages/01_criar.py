@@ -23,28 +23,21 @@ with st.expander('parametros iniciais',expanded=False):
 	st.write(st.session_state['fatores'])
 	curva = fx_dados.Fatores(**st.session_state['fatores'])
 
-with st.expander('Curva Composta',expanded=True):
+with st.expander('Curva Probabilista Calculada',expanded=True):
 
 	cols =st.columns([1,1,1,1,1,1,1,1])
-	st.session_state['input']['tipo'] = cols[0].radio('tipo',['despesa','receita'])
+	st.session_state['input']['calc']=['qtd':{},'unit':{},'rend':{}]
+	st.session_state['input']['calc']['tipo'] = cols[0].radio('tipo',['despesa','receita'])
 	
-	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
-	st.session_state['input']['curva'] = cols[1].radio('distribuição',fluxos)
-	
-	fx_math = ['somar','multicar','divir','subtrair']
-	st.session_state['input']['fx_math'] = cols[2].radio('Agregar',fx_math)
-
-	if st.session_state['input']['curva'] =='aleatorio':
-		cols[3].text('saida')
-		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
-
-		st.session_state['input']['nome'] = cols[4].text_input('nome')
-		st.session_state['input']['menor'] = cols[5].number_input('menor')
-		st.session_state['input']['maior'] = cols[6].number_input('maior')
+	st.session_state['input']['calc']['qtd'] = cols[3].checkbox('inteiro')
+	st.session_state['input']['calc']['nome'] = cols[4].text_input('nome')
+	st.session_state['input']['calc']['menor'] = cols[5].number_input('menor')
+	st.session_state['input']['calc']['maior'] = cols[6].number_input('maior')
 		
-		cols[7].text('incluir')
-		cols[7].button('sim',type='primary',key='btn_incluir')
-
+	cols[7].text('Probabilidade')
+	cols[7].button('Calcular',type='primary',key='btn_calcular')
+	
+"""
 	curva = fx_dados.Curvas(**st.session_state['input'])
 	st.dataframe(curva.df)
 
@@ -80,3 +73,4 @@ with st.expander('Resumos',expanded=True):
 with st.expander('session_state',expanded=True):
 	st.write(st.session_state['input'])
 
+"""
