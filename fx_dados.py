@@ -20,6 +20,8 @@ class Curvas(Fatores):
 		dic = asdict(self)
 		self.colunas= [k for k,v in dic.items()]
 		self.lst = [v for k,v in dic.items()]
-		self.df = pd.DataFrame([self.lst],columns=self.colunas)
+		df = pd.DataFrame([self.lst],columns=self.colunas)
 		df['media'] =(df['menor']+df['maior'])/2
 		df['total_med'] =df['media']*df['prazo'] 
+
+		self.df = df
