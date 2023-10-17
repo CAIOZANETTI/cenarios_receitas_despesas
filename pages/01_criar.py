@@ -22,17 +22,14 @@ with st.expander('Curva Composta',expanded=True):
 	cols[2].radio('Agregar',fx_math,key='fx_math')
 
 	if st.session_state['curva'] =='aleatorio':
-
-		cols[3].number_input('min')
-		cols[4].number_input('max')
-		st.checkbox('inteiro',key='inteiro')
+		cols[3].checkbox('inteiro',key='inteiro')
+		cols[4].number_input('min',key='min')
+		cols[5].number_input('max',key='max')
+		
 		
 	if st.session_state['curva'] =='parcela-fixa':
 		st.write('parcela-fixa')
 
-	st.write(st.session_state['curva'])
-
-with st.expander('incluir e remover curva',expanded=True):
 	cols =st.columns([1,1,1])
 	cols[0].button('incluir')
 	cols[1].button('deletar')
@@ -41,3 +38,6 @@ with st.expander('incluir e remover curva',expanded=True):
 with st.expander('Resumos',expanded=True):
 	df = pd.DataFrame()
 	st.dataframe(df)
+
+with st.expander('session_state',expanded=True):
+	st.write(st.session_state)
