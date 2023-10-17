@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+import fx_dados as fx_dados
+
 if 'input' not in st.session_state:
 	st.session_state['input']={}
 
@@ -35,11 +37,15 @@ with st.expander('Curva Composta',expanded=True):
 	if st.session_state['input']['curva'] =='aleatorio':
 		cols[3].text('saida')
 		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
-		st.session_state['input']['min'] = cols[4].number_input('min')
-		st.session_state['input']['max'] = cols[5].number_input('max')
+		st.session_state['input']['menor'] = cols[4].number_input('menor')
+		st.session_state['input']['maior'] = cols[5].number_input('maior')
 		
 		cols[6].text('incluir')
 		cols[6].button('sim',type='primary',key='btn_incluir')
+
+	curva = fx_dados.Curvas(**st.session_state['input'])
+	st.dataframe(curva.df)
+
 
 	if st.session_state['input']['curva'] =='parcela-fixa':
 		st.write('parcela-fixa')
