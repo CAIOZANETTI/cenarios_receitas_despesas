@@ -18,13 +18,13 @@ with st.expander('Curva Composta',expanded=True):
 	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
 	cols[1].radio('distribuição',fluxos,key='curva')
 	
-	fx_math = ['+','-','*','/']
+	fx_math = ['soma','mult','divir','subtrair']
 	cols[2].radio('Agregar',fx_math,key='fx_math')
 
 	if st.session_state['curva'] =='aleatorio':
 
-		cols[2].number_input('min')
-		cols[3].number_input('max')
+		cols[3].number_input('min')
+		cols[4].number_input('max')
 		st.checkbox('inteiro',key='inteiro')
 		
 	if st.session_state['curva'] =='parcela-fixa':
