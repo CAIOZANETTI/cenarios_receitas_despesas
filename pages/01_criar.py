@@ -27,12 +27,12 @@ with st.expander('Curva Probabilista Calculada',expanded=True):
 
 	cols =st.columns([1,1,1,1,1,1,1,1])
 	#st.session_state['input']['calc']=['qtd':{},'unit':{},'rend':{}]
-	st.session_state['input']['calc']['tipo'] = cols[0].radio('tipo',['despesa','receita'])
+	st.session_state['input']['calc_qtd'] ={}# cols[0].radio('tipo',['despesa','receita'])
 	
-	st.session_state['input']['calc']['qtd'] = cols[3].checkbox('inteiro')
-	st.session_state['input']['calc']['nome'] = cols[4].text_input('nome')
-	st.session_state['input']['calc']['menor'] = cols[5].number_input('menor')
-	st.session_state['input']['calc']['maior'] = cols[6].number_input('maior')
+	st.session_state['input']['calc_qtd']['qtd'] = cols[3].checkbox('inteiro')
+	st.session_state['input']['calc_qtd']['nome'] = cols[4].text_input('nome')
+	st.session_state['input']['calc_qtd']['menor'] = cols[5].number_input('menor')
+	st.session_state['input']['calc_qtd']['maior'] = cols[6].number_input('maior')
 		
 	cols[7].text('Probabilidade')
 	cols[7].button('Calcular',type='primary',key='btn_calcular')
