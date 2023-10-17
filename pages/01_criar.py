@@ -12,7 +12,7 @@ with st.expander('parametros iniciais',expanded=False):
 
 with st.expander('Curva Composta',expanded=True):
 
-	cols =st.columns([1,1,1,1,1])
+	cols =st.columns([1,1,1,1,1,1])
 	cols[0].radio('tipo',['receita','despesa'],key='tipo')
 	
 	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
