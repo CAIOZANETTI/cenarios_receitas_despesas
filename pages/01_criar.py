@@ -24,19 +24,20 @@ with st.expander('parametros iniciais',expanded=False):
 with st.expander('Curva Composta',expanded=True):
 
 	cols =st.columns([1,1,1,1,1,1,1])
-	cols[0].radio('tipo',['despesa','receita'],key='tipo')
+	st.session_state['input']['tipo'] = cols[0].radio('tipo',['despesa','receita'])
 	
 	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
-	cols[1].radio('distribuição',fluxos,key='curva')
+	st.session_state['input']['curva'] = cols[1].radio('distribuição',fluxos)
 	
 	fx_math = ['somar','multicar','divir','subtrair']
-	cols[2].radio('Agregar',fx_math,key='fx_math')
+	st.session_state['input']['fx_math'] = cols[2].radio('Agregar',fx_math)
 
 	if st.session_state['curva'] =='aleatorio':
 		cols[3].text('saida')
-		cols[3].checkbox('inteiro',key='inteiro')
-		cols[4].number_input('min',key='min')
-		cols[5].number_input('max',key='max')
+		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
+		st.session_state['input']['min'] = cols[4].number_input('min')
+		st.session_state['input']['max'] = cols[5].number_input('max')
+		
 		cols[6].text('incluir')
 		cols[6].button('sim',type='primary',key='btn_incluir')
 
