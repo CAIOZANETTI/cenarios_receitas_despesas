@@ -9,7 +9,7 @@ if 'inputs' not in st.session_state:
 
 
 with st.expander('parametros iniciais',expanded=False):
-	cols =st.columns([1,1,1])
+	cols =st.columns([1,1,1,1])
 	st.session_state['input']['periodo'] = cols[0].slider('periodo',12,60,value=12)
 	st.session_state['input']['loops'] = cols[1].slider('loops',10,100,value=50)
 	st.session_state['input']['quartil']=cols[2].slider('quartil',5,100,value=50)
@@ -36,7 +36,13 @@ with st.expander('Curva Composta',expanded=True):
 	if st.session_state['curva'] =='parcela-fixa':
 		st.write('parcela-fixa')
 
+	if st.session_state['btn_incluir']==True:
+		st.session_state['inputs'].append(st.session_state['input'])
+
+
 with st.expander('Resumos',expanded=True):
+	st.write(st.session_state['inputs'])
+
 	df = pd.DataFrame()
 	st.dataframe(df)
 
