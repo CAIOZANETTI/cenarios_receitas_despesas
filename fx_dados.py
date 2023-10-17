@@ -22,6 +22,6 @@ class Curvas(Fatores):
 		self.lst = [v for k,v in dic.items()]
 		df = pd.DataFrame([self.lst],columns=self.colunas)
 		df['media'] =(df['menor']+df['maior'])/2
-		df['total_med'] =df['media']*df['prazo'] 
+		df['total_med'] =df['media']*df['periodo'] 
 
 		self.df = df
