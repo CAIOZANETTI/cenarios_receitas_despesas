@@ -22,8 +22,6 @@ with st.expander('parametros iniciais',expanded=False):
 
 	st.write(st.session_state['fatores'])
 	curva = fx_dados.Fatores(**st.session_state['fatores'])
-	#st.dataframe(curva.df)
-#st.dataframe(df_analise)
 
 with st.expander('Curva Composta',expanded=True):
 
@@ -38,6 +36,7 @@ with st.expander('Curva Composta',expanded=True):
 
 	if st.session_state['input']['curva'] =='aleatorio':
 		cols[3].text('saida')
+		st.session_state['input']['nome'] = cols[3].text_input('nome')
 		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
 		st.session_state['input']['menor'] = cols[4].number_input('menor')
 		st.session_state['input']['maior'] = cols[5].number_input('maior')

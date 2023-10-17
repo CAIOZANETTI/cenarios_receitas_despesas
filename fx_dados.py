@@ -9,6 +9,7 @@ class Fatores:
 
 @dataclass
 class Curvas(Fatores):
+	nome:str=''
 	tipo:str='despesa'
 	curva:str='aleatoria'
 	fx_math:str='somar'#dividir, multiplica, subtrair
