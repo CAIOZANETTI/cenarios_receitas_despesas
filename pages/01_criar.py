@@ -42,8 +42,8 @@ with st.expander('Curva Composta',expanded=True):
 		st.session_state['input']['menor'] = cols[5].number_input('menor')
 		st.session_state['input']['maior'] = cols[6].number_input('maior')
 		
-		cols[6].text('incluir')
-		cols[6].button('sim',type='primary',key='btn_incluir')
+		cols[7].text('incluir')
+		cols[7].button('sim',type='primary',key='btn_incluir')
 
 	curva = fx_dados.Curvas(**st.session_state['input'])
 	st.dataframe(curva.df)
