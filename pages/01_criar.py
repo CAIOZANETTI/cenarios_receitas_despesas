@@ -26,7 +26,8 @@ with st.expander('Curva Composta',expanded=True):
 		cols[3].checkbox('inteiro',key='inteiro')
 		cols[4].number_input('min',key='min')
 		cols[5].number_input('max',key='max')
-		cols[6].button('incluir',type='primary')
+		cols[3].text('incluir')
+		cols[6].button('sim',type='primary',key='btn_incluir')
 
 	if st.session_state['curva'] =='parcela-fixa':
 		st.write('parcela-fixa')
