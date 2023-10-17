@@ -41,7 +41,7 @@ with st.expander('Curva Composta',expanded=True):
 		cols[6].text('incluir')
 		cols[6].button('sim',type='primary',key='btn_incluir')
 
-	if st.session_state['curva'] =='parcela-fixa':
+	if st.session_state['input']['curva'] =='parcela-fixa':
 		st.write('parcela-fixa')
 
 	if st.session_state['btn_incluir']==True:
