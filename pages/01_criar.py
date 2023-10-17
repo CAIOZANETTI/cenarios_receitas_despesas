@@ -28,6 +28,7 @@ with st.expander('Curva Probabilista Calculada',expanded=True):
 	cols =st.columns([1,1,1,1,1,1,1,1])
 	
 	cols[0].write('quantidade')
+	cols[1].write('precisão')
 	st.session_state['input']['calc_qtd']['tipo'] = cols[1].checkbox('inteiro')
 	st.session_state['input']['calc_qtd']['nome'] = cols[2].text_input('nome')
 	st.session_state['input']['calc_qtd']['menor'] = cols[3].number_input('menor')
@@ -37,7 +38,7 @@ with st.expander('Curva Probabilista Calculada',expanded=True):
 	cols[0].text('Probabilidade')
 	cols[0].button('Calcular',type='primary',key='btn_calcular')
 	
-	st.write(session_state)
+	st.write(st.session_state)
 
 """
 	curva = fx_dados.Curvas(**st.session_state['input'])
