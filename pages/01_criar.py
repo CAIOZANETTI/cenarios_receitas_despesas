@@ -19,7 +19,7 @@ with st.expander('Curva Composta',expanded=True):
 	cols[1].radio('distribuição',fluxos,key='curva')
 	
 	fx_math = ['+','-','*','/']
-	cols[2].radio('Agregar',fx_math,key='curva')
+	cols[2].radio('Agregar',fx_math,key='fx_math')
 
 	if st.session_state['curva'] =='aleatorio':
 
