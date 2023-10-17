@@ -26,17 +26,19 @@ with st.expander('parametros iniciais',expanded=False):
 with st.expander('Curva Probabilista Calculada',expanded=True):
 
 	cols =st.columns([1,1,1,1,1,1,1,1])
-	#st.session_state['input']['calc']=['qtd':{},'unit':{},'rend':{}]
-	st.session_state['input']['calc_qtd'] ={}# cols[0].radio('tipo',['despesa','receita'])
 	
-	st.session_state['input']['calc_qtd']['qtd'] = cols[3].checkbox('inteiro')
-	st.session_state['input']['calc_qtd']['nome'] = cols[4].text_input('nome')
-	st.session_state['input']['calc_qtd']['menor'] = cols[5].number_input('menor')
-	st.session_state['input']['calc_qtd']['maior'] = cols[6].number_input('maior')
-		
-	cols[7].text('Probabilidade')
-	cols[7].button('Calcular',type='primary',key='btn_calcular')
+	cols[0].write('quantidade')
+	st.session_state['input']['calc_qtd']['tipo'] = cols[1].checkbox('inteiro')
+	st.session_state['input']['calc_qtd']['nome'] = cols[2].text_input('nome')
+	st.session_state['input']['calc_qtd']['menor'] = cols[3].number_input('menor')
+	st.session_state['input']['calc_qtd']['maior'] = cols[4].number_input('maior')
 	
+	cols =st.columns([1,1])	
+	cols[0].text('Probabilidade')
+	cols[0].button('Calcular',type='primary',key='btn_calcular')
+	
+	st.write(session_state)
+
 """
 	curva = fx_dados.Curvas(**st.session_state['input'])
 	st.dataframe(curva.df)
