@@ -9,6 +9,7 @@ if 'analise' not in st.session_state:
 
 if 'inputs' not in st.session_state:
 	st.session_state['inputs']=[]
+	st.session_state['ativo_excluir']=False
 
 
 with st.expander('parametros iniciais',expanded=False):
@@ -54,8 +55,19 @@ with st.expander('Resumos',expanded=True):
 
 	st.markdown("""---""")
 	cols =st.columns([1,1,1])
-	cols[1].button('deletar',key='btn_deletar')
-	cols[2].button('limpar',key='limpar')
+	if len(st.session_state['inputs'])>1:
+		st.session_state['ativo_excluir']=True
+
+	cols[1].button('deletar ultimo',key='btn_excluir',disabled=st.session_state['ativo_excluir'])
+	cols[2].button('limpar tudo',key='btn_limpar')
+
+	if st.session_state['btn_incluir']==True:
+			st.session_state['inputs']=[]
+
+	if st.session_state['btn_excluir']==True:
+			st.session_state['inputs']=[]
+
 
 with st.expander('session_state',expanded=True):
 	st.write(st.session_state['input'])
+
