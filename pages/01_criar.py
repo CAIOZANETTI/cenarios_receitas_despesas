@@ -12,8 +12,8 @@ with st.expander('parametros iniciais',expanded=False):
 
 with st.expander('Curva Composta',expanded=True):
 
-	cols =st.columns([1,1,1,1,1,1])
-	cols[0].radio('tipo',['receita','despesa'],key='tipo')
+	cols =st.columns([1,1,1,1,1,1,1])
+	cols[0].radio('tipo',['despesa','receita'],key='tipo')
 	
 	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
 	cols[1].radio('distribuição',fluxos,key='curva')
@@ -22,22 +22,23 @@ with st.expander('Curva Composta',expanded=True):
 	cols[2].radio('Agregar',fx_math,key='fx_math')
 
 	if st.session_state['curva'] =='aleatorio':
+		cols[3].text('saida')
 		cols[3].checkbox('inteiro',key='inteiro')
 		cols[4].number_input('min',key='min')
 		cols[5].number_input('max',key='max')
-		
-		
+		cols[6].button('incluir',type:'primary')
+
 	if st.session_state['curva'] =='parcela-fixa':
 		st.write('parcela-fixa')
-
-	cols =st.columns([1,1,1])
-	cols[0].button('incluir')
-	cols[1].button('deletar')
-	cols[2].button('limpar')
 
 with st.expander('Resumos',expanded=True):
 	df = pd.DataFrame()
 	st.dataframe(df)
+
+	st.markdown("""---""")
+	cols =st.columns([1,1,1])
+	cols[1].button('deletar')
+	cols[2].button('limpar')
 
 with st.expander('session_state',expanded=True):
 	st.write(st.session_state)
