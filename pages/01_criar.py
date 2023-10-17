@@ -4,15 +4,21 @@ import pandas as pd
 if 'input' not in st.session_state:
 	st.session_state['input']={}
 
+if 'analise' not in st.session_state:
+	st.session_state['analise']={}
+
 if 'inputs' not in st.session_state:
 	st.session_state['inputs']=[]
 
 
 with st.expander('parametros iniciais',expanded=False):
-	cols =st.columns([1,1,1,1])
-	st.session_state['input']['periodo'] = cols[0].slider('periodo',12,60,value=12)
-	st.session_state['input']['loops'] = cols[1].slider('loops',10,100,value=50)
-	st.session_state['input']['quartil']=cols[2].slider('quartil',5,100,value=50)
+	cols =st.columns([1,1,1])
+	st.session_state['analise']['periodo'] = cols[0].slider('periodo',12,60,value=12)
+	st.session_state['analise']['loops'] = cols[1].slider('loops',10,100,value=50)
+	st.session_state['analise']['quartil']=cols[2].slider('quartil',5,100,value=50)
+
+	df_analise = pd.DataFrame(st.session_state['analise'])
+	st.dataframe(df_analise)
 
 with st.expander('Curva Composta',expanded=True):
 
