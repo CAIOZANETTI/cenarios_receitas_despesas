@@ -36,8 +36,9 @@ with st.expander('Curva Composta',expanded=True):
 
 	if st.session_state['input']['curva'] =='aleatorio':
 		cols[3].text('saida')
-		st.session_state['input']['nome'] = cols[3].text_input('nome')
-		st.session_state['input']['inteiro'] = cols[4].checkbox('inteiro')
+		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
+
+		st.session_state['input']['nome'] = cols[4].text_input('nome')
 		st.session_state['input']['menor'] = cols[5].number_input('menor')
 		st.session_state['input']['maior'] = cols[6].number_input('maior')
 		
