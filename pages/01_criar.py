@@ -17,8 +17,8 @@ with st.expander('parametros iniciais',expanded=False):
 	st.session_state['analise']['loops'] = cols[1].slider('loops',10,100,value=50)
 	st.session_state['analise']['quartil']=cols[2].slider('quartil',5,100,value=50)
 
-	df_analise = pd.DataFrame(st.session_state['analise'])
-	st.dataframe(df_analise)
+	st.write(st.session_state['analise'])
+	#st.dataframe(df_analise)
 
 with st.expander('Curva Composta',expanded=True):
 
