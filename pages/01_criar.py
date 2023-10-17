@@ -26,7 +26,7 @@ with st.expander('parametros iniciais',expanded=False):
 with st.expander('Curva Probabilista Calculada',expanded=True):
 
 	cols =st.columns([1,1,1,1,1,1,1,1])
-	st.session_state['input']['calc']=['qtd':{},'unit':{},'rend':{}]
+	#st.session_state['input']['calc']=['qtd':{},'unit':{},'rend':{}]
 	st.session_state['input']['calc']['tipo'] = cols[0].radio('tipo',['despesa','receita'])
 	
 	st.session_state['input']['calc']['qtd'] = cols[3].checkbox('inteiro')
