@@ -1,14 +1,18 @@
 import streamlit as st
 import pandas as pd
 
-if 'dic' not in st.session_state:
-	st.session_state['dic']={}
+if 'input' not in st.session_state:
+	st.session_state['input']={}
+
+if 'inputs' not in st.session_state:
+	st.session_state['inputs']=[]
+
 
 with st.expander('parametros iniciais',expanded=False):
 	cols =st.columns([1,1,1])
-	cols[0].slider('periodo',12,60,value=12)
-	cols[1].slider('loops',10,100,value=50)
-	cols[2].slider('quartil',5,100,value=50)
+	st.session_state['input']['periodo'] = cols[0].slider('periodo',12,60,value=12)
+	st.session_state['input']['loops'] = cols[1].slider('loops',10,100,value=50)
+	st.session_state['input']['quartil']=cols[2].slider('quartil',5,100,value=50)
 
 with st.expander('Curva Composta',expanded=True):
 
@@ -18,7 +22,7 @@ with st.expander('Curva Composta',expanded=True):
 	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
 	cols[1].radio('distribuição',fluxos,key='curva')
 	
-	fx_math = ['soma','mult','divir','subtrair']
+	fx_math = ['somar','multicar','divir','subtrair']
 	cols[2].radio('Agregar',fx_math,key='fx_math')
 
 	if st.session_state['curva'] =='aleatorio':
@@ -38,8 +42,8 @@ with st.expander('Resumos',expanded=True):
 
 	st.markdown("""---""")
 	cols =st.columns([1,1,1])
-	cols[1].button('deletar')
-	cols[2].button('limpar')
+	cols[1].button('deletar',key='btn_deletar')
+	cols[2].button('limpar',key='limpar')
 
 with st.expander('session_state',expanded=True):
-	st.write(st.session_state)
+	st.write(st.session_state['input'])
