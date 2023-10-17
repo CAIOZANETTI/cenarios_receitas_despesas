@@ -6,8 +6,8 @@ import fx_dados as fx_dados
 if 'input' not in st.session_state:
 	st.session_state['input']={}
 
-if 'analise' not in st.session_state:
-	st.session_state['analise']={}
+if 'fatores' not in st.session_state:
+	st.session_state['fatores']={}
 
 if 'inputs' not in st.session_state:
 	st.session_state['inputs']=[]
@@ -16,12 +16,14 @@ if 'inputs' not in st.session_state:
 
 with st.expander('parametros iniciais',expanded=False):
 	cols =st.columns([1,1,1])
-	st.session_state['analise']['periodo'] = cols[0].slider('periodo',12,60,value=12)
-	st.session_state['analise']['loops'] = cols[1].slider('loops',10,100,value=50)
-	st.session_state['analise']['quartil']=cols[2].slider('quartil',5,100,value=50)
+	st.session_state['fatores']['periodo'] = cols[0].slider('periodo',12,60,value=12)
+	st.session_state['fatores']['loops'] = cols[1].slider('loops',10,100,value=50)
+	st.session_state['fatores']['quartil']=cols[2].slider('quartil',5,100,value=50)
 
-	st.write(st.session_state['analise'])
-	#st.dataframe(df_analise)
+	st.write(st.session_state['fatores'])
+	curva = fx_dados.Fatores(**st.session_state['fatores'])
+	#st.dataframe(curva.df)
+#st.dataframe(df_analise)
 
 with st.expander('Curva Composta',expanded=True):
 
