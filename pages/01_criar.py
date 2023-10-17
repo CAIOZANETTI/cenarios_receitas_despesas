@@ -32,7 +32,7 @@ with st.expander('Curva Composta',expanded=True):
 	fx_math = ['somar','multicar','divir','subtrair']
 	st.session_state['input']['fx_math'] = cols[2].radio('Agregar',fx_math)
 
-	if st.session_state['curva'] =='aleatorio':
+	if st.session_state['input']['curva'] =='aleatorio':
 		cols[3].text('saida')
 		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
 		st.session_state['input']['min'] = cols[4].number_input('min')
