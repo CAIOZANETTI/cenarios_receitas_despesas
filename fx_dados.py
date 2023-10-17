@@ -3,7 +3,7 @@ import pandas as pd
 
 @dataclass
 class Fatores:
-	prazo:int=12
+	periodo:int=12
 	quartil:int=50
 	loops:int=100
 
