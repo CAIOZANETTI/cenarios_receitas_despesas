@@ -17,6 +17,10 @@ class Curvas(Fatores):
 	maior:float=0
 	
 	def __post_init__(self):
+		if self.tipo=='despesa':
+			self.menor = -self.menor
+			self.maior = -self.maior
+
 		dic = asdict(self)
 		self.colunas= [k for k,v in dic.items()]
 		self.lst = [v for k,v in dic.items()]
