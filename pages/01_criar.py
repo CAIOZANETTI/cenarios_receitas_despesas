@@ -43,7 +43,7 @@ with st.expander('Curva Composta',expanded=True):
 		cols[6].text('incluir')
 		cols[6].button('sim',type='primary',key='btn_incluir')
 
-	curva = fx_dados.Curvas(**st.session_state['input'])
+	curva = fx_dados.Curvas(st.session_state['input'])
 	st.dataframe(curva.df)
 
 
