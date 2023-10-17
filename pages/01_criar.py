@@ -25,7 +25,7 @@ with st.expander('parametros iniciais',expanded=False):
 
 with st.expander('Curva Composta',expanded=True):
 
-	cols =st.columns([1,1,1,1,1,1,1])
+	cols =st.columns([1,1,1,1,1,1,1,1])
 	st.session_state['input']['tipo'] = cols[0].radio('tipo',['despesa','receita'])
 	
 	fluxos = ['aleatorio','parcela-fixa','financiamento price','recorrente']
@@ -37,9 +37,9 @@ with st.expander('Curva Composta',expanded=True):
 	if st.session_state['input']['curva'] =='aleatorio':
 		cols[3].text('saida')
 		st.session_state['input']['nome'] = cols[3].text_input('nome')
-		st.session_state['input']['inteiro'] = cols[3].checkbox('inteiro')
-		st.session_state['input']['menor'] = cols[4].number_input('menor')
-		st.session_state['input']['maior'] = cols[5].number_input('maior')
+		st.session_state['input']['inteiro'] = cols[4].checkbox('inteiro')
+		st.session_state['input']['menor'] = cols[5].number_input('menor')
+		st.session_state['input']['maior'] = cols[6].number_input('maior')
 		
 		cols[6].text('incluir')
 		cols[6].button('sim',type='primary',key='btn_incluir')
